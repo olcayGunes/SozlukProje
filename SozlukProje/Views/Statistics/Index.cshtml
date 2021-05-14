@@ -1,0 +1,95 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    div .horizontal {
+        float: left;
+    }
+
+
+    div#NumberOfCategoryDiv {
+        width: 300px;
+        height: 300px;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: aquamarine;
+        margin: 10px;
+        position: relative;
+        margin-left:auto;
+    }
+
+    div#NumberOfHeadingsInCategoryOfSoftwareDiv {
+        width: 300px;
+        height: 300px;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: blueviolet;
+        margin: 10px;
+        
+    }
+
+    div#NumberOfWritersWithAIn {
+        width: 300px;
+        height: 300px;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: coral;
+        margin: 10px;
+        position: relative;
+    }
+
+    div#CategoryWithTheMostHeadings {
+        width: 300px;
+        height: 300px;
+        padding: 20px;
+        border-radius: 10px;
+        background-color:darkorange;
+        margin: 10px;
+        margin-left:200px;
+        position: relative;
+    }
+
+    div#TheDifferenceBetweenTrueAndFalseInCategoryTable {
+        width: 300px;
+        height: 300px;
+        padding: 20px;
+        border-radius: 10px;
+        background-color:darkolivegreen;
+        margin: 10px;
+        position: relative;
+    }
+</style>
+
+
+<h2 style="text-align:center">İstatistikler</h2>
+<div>
+    <div class="horizontal" id="NumberOfCategoryDiv">
+    <h4 style="text-align:center">Kategori Sayısı</h4>
+        <p style="text-align:center;font-size:50px;">@ViewBag.numberOfCategory</p>
+    </div>
+    <div class="horizontal" id="NumberOfHeadingsInCategoryOfSoftwareDiv">
+    <h4 style="text-align:center">Yazılım Kategorisindeki Başlık Sayısı</h4>
+    <p style="text-align:center;font-size:50px;">@ViewBag.numberOfHeadingsInCategoryOfSoftware</p>
+    </div>
+    <div class="horizontal" id="NumberOfWritersWithAIn">
+    <h4 style="text-align:center">Yazar Adında "A" Harfi Olan Yazar Sayısı</h4>
+    <p style="text-align:center;font-size:50px;">@ViewBag.numberOfWritersWithAIn</p>
+    </div>
+</div>
+
+<div>
+    <div class="horizontal" id="CategoryWithTheMostHeadings">
+    <h4 style="text-align:center">En Fazla Başlığa Sahip Kategori</h4>
+    <p style="text-align:center;font-size:50px;">@ViewBag.categoryWithTheMostHeadings</p>
+    </div>
+    <div class="horizontal" id="TheDifferenceBetweenTrueAndFalseInCategoryTable">
+    <h4 style="text-align:center">Kategori Tablosunda Durumu True Olan Kategoriler İle Durumu False Olan Kategoriler Arasındaki Fark</h4>
+    <p style="text-align:center;font-size:50px;">@ViewBag.TheDifferenceBetweenTrueAndFalseInCategoryTable</p>
+    </div>
+</div>
+
+
+
