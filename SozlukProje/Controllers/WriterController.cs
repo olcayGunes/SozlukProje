@@ -15,6 +15,7 @@ namespace SozlukProje.Controllers
 	public class WriterController : Controller
 	{
 		WriterManager writerManager = new WriterManager(new EfWriterDal());
+		WriterValidator writerValidator = new WriterValidator();
 		public ActionResult Index()
 		{
 			var writerValues = writerManager.GetList();
@@ -30,12 +31,36 @@ namespace SozlukProje.Controllers
 		[HttpPost]
 		public ActionResult AddWriter(Writer writer)
 		{
-			WriterValidator writerValidator = new WriterValidator();
 			ValidationResult results = writerValidator.Validate(writer);
 
 			if (results.IsValid)
 			{
 				writerManager.WriterAdd(writer);
+				return RedirectToAction("Index");
+			}
+			else
+			{
+				foreach (var item in results.Errors)
+				{
+					ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+				}
+			}
+			return View();
+		}
+		[HttpGet]
+		public ActionResult EditWriter(int id)
+		{
+			var writerValue = writerManager.GetById(id);
+			return View(writerValue);
+		}
+		[HttpPost]
+		public ActionResult EditWriter(Writer writer)
+		{
+			ValidationResult results = writerValidator.Validate(writer);
+
+			if (results.IsValid)
+			{
+				writerManager.WriterUpdate(writer);
 				return RedirectToAction("Index");
 			}
 			else
