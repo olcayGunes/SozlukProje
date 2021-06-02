@@ -51,5 +51,10 @@ namespace SozlukProje.Controllers
             headingManager.HeadingAdd(heading);
             return RedirectToAction("Index");
         }
+
+        public ActionResult GetContentByHeading()
+		{
+            return View();
+        }
     }
 }
